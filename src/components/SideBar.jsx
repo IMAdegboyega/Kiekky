@@ -25,7 +25,7 @@ const SideBar = () => {
                       <Image src={icon} alt={name} width={20} height={20} />
                       <p
                         className={`text-sm font-medium ${
-                          isActive ? 'text-blue-600' : 'text-gray-700'
+                          isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'
                         }`}
                       >
                         {name}

@@ -46,12 +46,12 @@ const Voucher = () => {
               placeholder="Insert Voucher Code"
               value={voucherCode}
               onChange={(e) => setVoucherCode(e.target.value)}
-              className="w-full px-4 py-3 bg-purple-50 border border-purple-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 placeholder-gray-400"
+              className="w-full px-4 py-3 bg-blue-50 border border-blue-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
             />
             
             <button
               onClick={handleActivate}
-              className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               Activate
             </button>

@@ -125,7 +125,7 @@ const DateRequestForm = ({
                 placeholder="Lagos, Nigeria"
                 value={formData.location}
                 onChange={(e) => setFormData({...formData, location: e.target.value})}
-                className="w-full px-4 py-3 bg-purple-50 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-500"
+                className="w-full px-4 py-3 bg-blue-50 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-500"
               />
               <button
                 type="button"
@@ -149,7 +149,7 @@ const DateRequestForm = ({
                 type="date"
                 value={formData.preferredDay}
                 onChange={(e) => setFormData({...formData, preferredDay: e.target.value})}
-                className="w-full px-4 py-3 bg-purple-50 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 bg-blue-50 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="button"
@@ -173,11 +173,11 @@ const DateRequestForm = ({
                 type="time"
                 value={formData.preferredTime}
                 onChange={(e) => setFormData({...formData, preferredTime: e.target.value})}
-                className="w-full px-4 py-3 bg-purple-50 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 bg-blue-50 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-purple-600 rounded flex items-center justify-center"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded flex items-center justify-center"
               >
                 <Clock className="text-white" size={16} />
               </button>

@@ -3,6 +3,7 @@
 import { Send, Plus } from "lucide-react";
 import TransactionsTable from "./Transactions";
 import React, { useState } from "react";
+import { TopUpToken, TransferToken } from "./FloatyWindow";
 
 const sampleTransactions = [
   {
@@ -57,7 +58,9 @@ const sampleTransactions = [
 ];
 
 const Tokens = () => {
-  const [showData, setShowData] = React.useState(true);
+    const [showData, setShowData] = React.useState(true);
+    const [showTopUp, setShowTopUp] = useState(false);
+    const [showTransfer, setShowTransfer] = useState(false);
 
   return (
     <div className="space-y-10">
@@ -80,7 +83,7 @@ const Tokens = () => {
         </div>
 
         {/* Top Up Token Card */}
-        <div className="bg-white border-2 border-dashed border-gray-300 p-6 rounded-xl flex flex-col items-center justify-center hover:border-blue-400 transition-colors cursor-pointer">
+        <div onClick={() => setShowTopUp(true)} className="bg-white border-2 border-dashed border-gray-300 p-6 rounded-xl flex flex-col items-center justify-center hover:border-blue-400 transition-colors cursor-pointer">
           <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
             <Plus className="w-6 h-6 text-blue-600" />
           </div>
@@ -88,9 +91,9 @@ const Tokens = () => {
         </div>
 
         {/* Transfer Token Card */}
-        <div className="bg-white border-2 border-dashed border-gray-300 p-6 rounded-xl flex flex-col items-center justify-center hover:border-purple-400 transition-colors cursor-pointer">
-          <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
-            <Send className="w-6 h-6 text-purple-600" />
+        <div onClick={() => setShowTransfer(true)} className="bg-white border-2 border-dashed border-gray-300 p-6 rounded-xl flex flex-col items-center justify-center hover:border-blue-400 transition-colors cursor-pointer">
+          <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+            <Send className="w-6 h-6 text-blue-600" />
           </div>
           <span className="text-gray-700 font-medium">Transfer Token</span>
         </div>
@@ -114,6 +117,18 @@ const Tokens = () => {
           </div>
         </div>
       </div>
+
+      <TopUpToken 
+        isOpen={showTopUp} 
+        onClose={() => setShowTopUp(false)} 
+      />
+
+      <TransferToken
+        isOpen={showTransfer} 
+        onClose={() => setShowTransfer(false)} 
+      />
+
+
     </div>
   );
 };

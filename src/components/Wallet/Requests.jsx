@@ -1,10 +1,28 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import { ArrowUpRight, Edit2 } from 'lucide-react';
+import { BankAccountDetails, RequestPayout } from './FloatyWindow';
 
 const Requests = () => {
+
+  const [showPayOut, setShowPayOut] = useState(false);
+  const [showBank, setShowBank] = useState(false);
+
+  const handleSaveBankDetails = (bankDetails) => {
+    console.log('Bank details saved:', bankDetails);
+    // Handle saving the bank details
+    // bankDetails will contain: { bank, accountNumber, accountName }
+  };
+
+  const handlePayOut = (payOut) => {
+    console.log('Payout requested for amount:', payOut);
+  } 
+
   const handleRequestPayout = () => {
     console.log('Request payout clicked');
-  };
+    setShowPayOut(true);
+  }
 
   const handleAddBankDetails = () => {
     console.log('Add bank details clicked');
@@ -19,10 +37,10 @@ const Requests = () => {
           
           <button
             onClick={handleRequestPayout}
-            className="w-full max-w-xs border-2 border-purple-200 rounded-2xl p-8 hover:border-purple-300 transition-colors bg-white group"
+            className="w-full max-w-xs border-2 border-blue-200 rounded-2xl p-8 hover:border-blue-300 transition-colors bg-white group cursor-pointer"
           >
             <div className="flex flex-col items-center">
-              <ArrowUpRight className="w-8 h-8 text-purple-500 mb-3 transform rotate-[-45deg]" />
+              <ArrowUpRight className="w-8 h-8 text-blue-500 mb-3 transform rotate-[-45deg]" />
               <span className="text-gray-800">Request Payout</span>
             </div>
           </button>
@@ -39,14 +57,28 @@ const Requests = () => {
             <p className="text-gray-400 mb-2">No new bank details saved</p>
             <button
               onClick={handleAddBankDetails}
-              className="text-purple-600 hover:text-purple-700 transition-colors"
+              className="text-blue-600 hover:text-blue-700 transition-colors"
             >
-              <span>Click here</span>
+              <span onClick={() => setShowBank(true)} className='cursor-pointer'>Click here</span>
               <span className="text-gray-400"> to add your bank details</span>
             </button>
           </div>
         </div>
       </div>
+
+      <RequestPayout
+        isOpen={showPayOut}
+        onClose={() => setShowPayOut(false)}
+        onSave={handlePayOut}
+        forceStatus="success"
+      />
+
+      <BankAccountDetails
+        isOpen={showBank}
+        onClose={() => setShowBank(false)}
+        onSave={handleSaveBankDetails}
+        forceStatus="success"
+      />
     </div>
   );
 };

@@ -3,10 +3,10 @@
 import React, { useState } from 'react'
 import { Heart, MapPin, Plus } from 'lucide-react'
 import Image from 'next/image'
-import DateCard from '@/components/Message/DateCard'
-import RequestDateCard from '@/components/Message/RequestDateCard'
-import DateSummaryCard from '@/components/Message/DateSummaryCard'
-import DateRequestForm from '@/components/Message/DateRequestForm'
+import DateCard from '@/components/Dates/DateCard'
+import RequestDateCard from '@/components/Dates/RequestDateCard'
+import DateSummaryCard from '@/components/Dates/DateSummaryCard'
+import DateRequestForm from '@/components/Dates/DateRequestForm'
 
 const Dates = () => {
   const [activeTab, setActiveTab] = useState('apply') // 'apply' or 'request'
@@ -141,7 +141,7 @@ const Dates = () => {
             <div className="flex justify-end px-6 mb-4">
               <button
                 onClick={() => setShowDateRequestForm(true)}
-                className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-md hover:bg-purple-50 transition-colors flex items-center gap-2"
+                className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors flex items-center gap-2"
               >
                 <Plus size={16} />
                 New Date Request

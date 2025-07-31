@@ -8,7 +8,7 @@ const DateSummaryCard = ({
   tags = ['Lunch', 'Drinks', 'Freaky']
 }) => {
   return (
-    <div className="bg-purple-50 rounded-lg p-4">
+    <div className="bg-blue-50 rounded-lg p-4">
       <h3 className="text-sm font-semibold text-gray-900 mb-1">{time}</h3>
       <p className="text-xs text-gray-500 mb-3">Location: {location}</p>
       

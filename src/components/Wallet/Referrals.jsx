@@ -13,17 +13,17 @@ const Referrals = () => {
 
   const steps = [
     {
-      icon: <Send className="w-6 h-6 text-purple-600" />,
+      icon: <Send className="w-6 h-6 text-blue-600" />,
       title: 'Send Invitation',
       description: 'Send your referral code to your friends and tell them about Kiekky.'
     },
     {
-      icon: <FileText className="w-6 h-6 text-purple-600" />,
+      icon: <FileText className="w-6 h-6 text-blue-600" />,
       title: 'Registration',
       description: 'They get registered on the Kiekky platform using your referral link.'
     },
     {
-      icon: <Wallet className="w-6 h-6 text-purple-600" />,
+      icon: <Wallet className="w-6 h-6 text-blue-600" />,
       title: 'Receive free tokens',
       description: 'You and your friends will receive free tokens after transactions.'
     }
@@ -41,7 +41,7 @@ const Referrals = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, index) => (
             <div key={index} className="text-center">
-              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 {step.icon}
               </div>
               <h3 className="font-semibold text-gray-800 mb-2">{step.title}</h3>
@@ -70,7 +70,7 @@ const Referrals = () => {
             />
             <button
               onClick={handleCopyLink}
-              className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               {copied ? 'Copied!' : 'Copy Link'}
             </button>

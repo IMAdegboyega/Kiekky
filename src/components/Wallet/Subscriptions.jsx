@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, X } from 'lucide-react';
+import { CancelSubscription, SubscriptionConfirm } from './FloatyWindow';
 
 const Subscription = ({ 
   hasActiveSubscription = false, 
@@ -9,6 +10,8 @@ const Subscription = ({
   const [isAnnual, setIsAnnual] = useState(false);
   const [autoRenew, setAutoRenew] = useState(true);
   const [showActiveSubscription, setShowActiveSubscription] = useState(hasActiveSubscription);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [showCancel, setShowCancel] = useState(false);
 
   const plans = [
     {
@@ -84,6 +87,16 @@ const Subscription = ({
 
   const historyData = subscriptionHistory.length > 0 ? subscriptionHistory : defaultHistory;
 
+  const handleSubscribe = () => {
+    // Your subscription logic here
+    console.log('User confirmed subscription');
+  };
+
+  const handleCancelSubscription = () => {
+    // Your cancellation logic here
+    console.log('Subscription cancelled');
+  };
+
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
       case 'successful':
@@ -107,9 +120,9 @@ const Subscription = ({
             
             {/* Current Plan Card */}
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Current Plan</h2>
-            <div className="w-90 bg-white rounded-lg p-6 mb-8 border-2 border-purple-200 relative">
+            <div className="w-90 bg-white rounded-lg p-6 mb-8 border-2 border-blue-200 relative">
               {/* Crown icon */}
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                 <Check className='text-white'/>
               </div>
 
@@ -120,16 +133,16 @@ const Subscription = ({
                   <div className="text-sm text-gray-500">23 days remaining</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-purple-600">$1000.00</div>
+                  <div className="text-2xl font-bold text-blue-600">$1000.00</div>
                   <div className="text-sm text-gray-500">/month</div>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <button className="px-6 py-2 border border-purple-300 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors">
+                <button onClick={() => setShowCancel(true)} className="px-6 py-2 border border-blue-300 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
                   Cancel Plan
                 </button>
-                <button className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
                   Upgrade Plan
                 </button>
               </div>
@@ -137,11 +150,16 @@ const Subscription = ({
             <div className="mb-6 text-center">
               <button
                 onClick={() => setShowActiveSubscription(!showActiveSubscription)}
-                className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Switch to {showActiveSubscription ? 'Pricing Plans' : 'Current Subscription'} View
               </button>
             </div>
+            <CancelSubscription 
+              isOpen={showCancel}
+              onClose={() => setShowCancel(false)}
+              onConfirm={handleCancelSubscription}
+            />
         </div>
 
         {/* Auto Renew Toggle */}
@@ -293,7 +311,8 @@ const Subscription = ({
 
             {/* Choose Button */}
             <button
-              className={`w-full py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 ${
+              onClick={() => setShowConfirm(true)}
+              className={`w-full py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 cursor-pointer ${
                 plan.popular
                   ? 'bg-white text-blue-600 hover:bg-gray-100'
                   : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -304,6 +323,13 @@ const Subscription = ({
           </div>
         ))}
       </div>
+
+      <SubscriptionConfirm
+        isOpen={showConfirm}
+        onClose={() => setShowConfirm(false)}
+        onConfirm={handleSubscribe}
+        forceStatus="failed"
+      />
     </div>
   );
 };

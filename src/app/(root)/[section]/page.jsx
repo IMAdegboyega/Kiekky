@@ -5,6 +5,7 @@ const sections = {
   Notification: dynamic(() => import('./sections/Notification')),
   PersonalProfile: dynamic(() => import('./sections/PersonalProfile')),
   community: dynamic(() => import('./sections/Community')),
+  frames: dynamic(() => import('./sections/Frames')),
   dates: dynamic(() => import('./sections/Dates')),
   messages: dynamic(() => import('./sections/Messages')),
   wallet: dynamic(() => import('./sections/Wallet')),

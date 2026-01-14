@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Smartphone } from 'lucide-react';
+import { Eye, EyeClosed, Mail, Smartphone } from 'lucide-react';
 
 const AuthForm = ({ type }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -185,7 +185,7 @@ const AuthForm = ({ type }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   <span className="text-gray-400 hover:text-gray-600">
-                    {showNewPassword ? '👁️' : '👁️‍🗨️'}
+                    {showNewPassword ? <EyeClosed /> : <Eye />}
                   </span>
                 </button>
               </div>
@@ -211,7 +211,7 @@ const AuthForm = ({ type }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   <span className="text-gray-400 hover:text-gray-600">
-                    {showConfirmNewPassword ? '👁️' : '👁️‍🗨️'}
+                    {showConfirmNewPassword ? <EyeClosed /> : <Eye />}
                   </span>
                 </button>
               </div>
@@ -562,7 +562,7 @@ const AuthForm = ({ type }) => {
                 className="absolute inset-y-0 right-0 pr-3 flex items-center"
               >
                 <span className="text-gray-400 hover:text-gray-600">
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                  {showPassword ? <EyeClosed /> : <Eye />}
                 </span>
               </button>
             </div>
@@ -588,7 +588,7 @@ const AuthForm = ({ type }) => {
                 className="absolute inset-y-0 right-0 pr-3 flex items-center"
               >
                 <span className="text-gray-400 hover:text-gray-600">
-                  {showConfirmPassword ? '👁️' : '👁️‍🗨️'}
+                  {showConfirmPassword ? <EyeClosed /> : <Eye />}
                 </span>
               </button>
             </div>
@@ -765,7 +765,7 @@ const AuthForm = ({ type }) => {
                 className="absolute inset-y-0 right-0 pr-3 flex items-center"
               >
                 <span className="text-gray-400 hover:text-gray-600">
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                  {showPassword ? <EyeClosed /> : <Eye/>}
                 </span>
               </button>
             </div>

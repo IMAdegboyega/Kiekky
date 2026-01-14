@@ -14,13 +14,13 @@ const Layout = ({ children }) => {
           height={800}
           className='h-full w-full object-cover'
         />
-        
+
         {/* Logo - Fixed Position */}
         <div className='absolute inset-0 flex flex-col items-center justify-center'>
           <Image
             src="/icon/logo-brand.svg"
             alt="Klekky Logo"
-            width={200}
+            width={200}  
             height={500}
           />
         </div>

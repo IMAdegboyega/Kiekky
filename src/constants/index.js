@@ -1,37 +1,47 @@
+import {
+  House,
+  LayoutPanelLeft,
+  Bell,
+  Mail,
+  Wallet,
+  Settings,
+  LogOut,
+} from "lucide-react";
+
 export const navItems = [
   {
-    name: 'Home',
-    icon: '/icon/home.svg',
-    url: '/',
+    name: "Home",
+    icon: House,
+    url: "/",
   },
   {
-    name: 'Comunity',
-    icon: '/icon/community.svg',
-    url: '/community',
+    name: "Frames",
+    icon: LayoutPanelLeft,
+    url: "/frames",
   },
   {
-    name: 'Dates',
-    icon: '/icon/dates.svg',
-    url: '/dates',
+    name: "Notification",
+    icon: Bell,
+    url: "/Notification",
   },
   {
-    name: 'Messages',
-    icon: '/icon/messages.svg',
-    url: '/messages',
+    name: "Messages",
+    icon: Mail,
+    url: "/messages",
   },
   {
-    name: 'Wallet',
-    icon: '/icon/wallet.svg',
-    url: '/wallet',
+    name: "Wallet",
+    icon: Wallet,
+    url: "/wallet",
   },
   {
-    name: 'Settings',
-    icon: '/icon/settings.svg',
-    url: '/settings',
+    name: "Settings",
+    icon: Settings,
+    url: "/settings",
   },
   {
-    name: 'Logout',
-    icon: '/icon/logout.svg',
-    url: '/signin',
+    name: "Logout",
+    icon: LogOut,
+    url: "/signin",
   },
-]
+];

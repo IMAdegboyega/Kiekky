@@ -7,36 +7,43 @@ import Posts from '@/components/Posts'
 import Recommendations from '@/components/Recommendations'
 
 const HomePage = () => {
-  // Handler functions
   const handlePost = (content) => {
     console.log('New post:', content)
-    // Add your post creation logic here
   }
 
   const handleImageUpload = () => {
     console.log('Image upload clicked')
-    // Add image upload logic
   }
 
   const handleCamera = () => {
     console.log('Camera clicked')
-    // Add camera logic
   }
 
   const handleUserClick = (user) => {
     console.log('User clicked:', user)
-    // Add navigation to user profile
+  }
+
+  const handleSaveUser = (user) => {
+    console.log('Save user:', user)
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto pb-20 md:pb-6">
       {/* Stories Section */}
       <Stories />
 
+      {/* Mobile/Tablet Recommendations - Horizontal Scroll */}
+      <div className="px-4 mt-4 lg:hidden">
+        <Recommendations 
+          onUserClick={handleUserClick}
+          onSaveUser={handleSaveUser}
+        />
+      </div>
+
       {/* Main Content Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 mt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 mt-4 lg:mt-6">
         {/* Left Content - Post Creation and Feed */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4 md:space-y-6">
           {/* Create Post Section */}
           <NewPost 
             onPost={handlePost}
@@ -44,13 +51,16 @@ const HomePage = () => {
             onCameraClick={handleCamera}
           />
 
-          {/* Feed Area - Currently showing No Posts */}
+          {/* Feed Area */}
           <Posts />
         </div>
 
-        {/* Right Sidebar - Recommendations */}
-        <div className="lg:col-span-1">
-          <Recommendations onUserClick={handleUserClick} />
+        {/* Right Sidebar - Desktop Recommendations */}
+        <div className="hidden lg:block lg:col-span-1">
+          <Recommendations 
+            onUserClick={handleUserClick}
+            onSaveUser={handleSaveUser}
+          />
         </div>
       </div>
     </div>

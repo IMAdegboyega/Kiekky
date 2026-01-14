@@ -19,26 +19,25 @@ const Header = ({ openSidebar }) => {
       <div className="ml-auto flex items-center gap-6 p-6">
         <SearchBar />
 
-        <Link href="/Notification">
-          <Image
-            src="/icon/bell.svg"
-            alt="bell icon"
-            width={30}
-            height={30}
-            className='cursor-pointer hidden md:block'
-          />
+        {/* Mobile profile picture - only shows on mobile */}
+        <Link href="/PersonalProfile" className="md:hidden">
+
+          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200">
+            {/* <img
+              src={profileImage}
+              alt={`${name}'s profile`}
+              className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
+            /> */}
+            <Image
+              src="/img/lady.png"
+              alt="Profile"
+              width={40}
+              height={40}
+              className="object-cover flex items-center justify-center w-full h-full"
+            />
+          </div>
+
         </Link>
-        
-        <div>
-          <Image
-            src="/icon/menu.svg"
-            alt="menu icon"
-            width={35}
-            height={35}
-            className='cursor-pointer block md:hidden'
-            onClick={openSidebar}
-          />
-        </div>
       </div>
     </div>
   )
